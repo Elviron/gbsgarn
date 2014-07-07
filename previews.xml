@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<previews>
+
+    <preview
+        name="Config1"
+        activity="com.ilves.gbsgarn.GbsArrayAdapter"
+        config="layout-sw360dp-w360dp-h640dp-large-long-port-notnight-xxhdpi-finger-keyssoft-nokeys-navhidden-nonav-1920x1080-v17"
+        device="S4"
+        devicestate="Portrait"
+        target="Android 4.2.2"
+        theme="@style/AppTheme" >
+    </preview>
+    <preview
+        name="Config2"
+        activity="com.ilves.gbsgarn.GbsArrayAdapter"
+        config="layout-sw360dp-w360dp-h640dp-large-long-port-notnight-xxhdpi-finger-keyssoft-nokeys-navhidden-nonav-1920x1080-v17"
+        device="S4"
+        devicestate="Portrait"
+        target="Android 4.2.2"
+        theme="@style/AppTheme" >
+    </preview>
+    <preview
+        name="Config1"
+        activity="com.ilves.gbsgarn.GbsArrayAdapter"
+        config="layout-sw320dp-w320dp-h426dp-small-notlong-port-notnight-ldpi-finger-keyssoft-nokeys-navhidden-nonav-320x240-v17"
+        device="2.7in QVGA"
+        devicestate="Portrait"
+        target="Android 4.2.2"
+        theme="@style/AppTheme" >
+    </preview>
+
+</previews>
