@@ -1,6 +1,7 @@
 package com.ilves.gbsgarn;
 
 import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
@@ -9,6 +10,9 @@ import android.widget.TextView;
 
 public class GbsGarnActivity extends Activity {
 
+	private static final String	TAG	= "GbsGarnActivity";
+    protected boolean mDebugLog = false;
+    
 	public GbsArrayAdapter adapter;
 	private ListView listView;
 	//private Session session;
@@ -75,4 +79,10 @@ public class GbsGarnActivity extends Activity {
 		}
 	}
 	 */
+
+	public void debugLog(String message) {
+		if (mDebugLog) {
+			Log.i(TAG, message);
+		}
+	}
 }
