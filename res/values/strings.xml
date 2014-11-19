@@ -3,6 +3,7 @@
 
     <string name="app_name">Gbsgarn</string>
     <string name="app_id">424240934363823</string>
+    <string name="fb_token">424240934363823|IzmKFSTX-mq0KBkJBIn3Z1X9ltk</string>
     <string name="name">G-B:s Garn</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>

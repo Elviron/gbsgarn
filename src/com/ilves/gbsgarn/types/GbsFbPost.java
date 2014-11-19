@@ -1,8 +1,16 @@
-package com.ilves.gbsgarn;
+package com.ilves.gbsgarn.types;
 
 import java.io.File;
 import java.io.FileOutputStream;
+
 import org.json.JSONObject;
+
+import com.ilves.gbsgarn.GlobalValues;
+import com.ilves.gbsgarn.R;
+import com.ilves.gbsgarn.R.string;
+import com.ilves.gbsgarn.adapters.GbsAdapter;
+import com.ilves.gbsgarn.asyncs.ASyncImageUrlLoader;
+import com.ilves.gbsgarn.interfaces.ImageLoader;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,9 +23,9 @@ public class GbsFbPost implements ImageLoader{
 	// Properties
 	//================================================================================
 
-	private GbsArrayAdapter parent;
+	private GbsAdapter parent;
 
-	private String title, id, date, url, imgName = null;
+	private String title, id, date, url = null, imgName = null;
 	private File imgFile = null, myDir;
 
 	private boolean isNotEmpty, hasTitle;
@@ -27,8 +35,8 @@ public class GbsFbPost implements ImageLoader{
 	// Constructors
 	//================================================================================
 
-	public GbsFbPost(GbsArrayAdapter context, JSONObject jsonobj, int w) {
-		parent = context;
+	public GbsFbPost(GbsAdapter adapter, JSONObject jsonobj, int w) {
+		parent = adapter;
 		width = w;
 		//Log.i(GlobalValues.logTag, "Object: "+jsonobj.toString());
 		try {
@@ -51,10 +59,11 @@ public class GbsFbPost implements ImageLoader{
 				setDate(jsonobj.getString("created_time").substring(0, 10));
 				// Url for picture
 				String u = jsonobj.getString("picture");
-				int i = u.length();
+				//int i = u.length();
 				// Change one letter in url to get big image
-				u = u.substring(0, i-5) + "n" + u.substring(i-4,i);
-				setUrl(u);
+				//u = u.substring(0, i-5) + "n" + u.substring(i-4,i);
+				//setUrl(u);
+				setImagesUrls("https://graph.facebook.com/"+jsonobj.getString("object_id")+"?access_token="+parent.getActivityString(R.string.fb_token));
 			} else {
 				isNotEmpty = false;
 			}
@@ -117,13 +126,14 @@ public class GbsFbPost implements ImageLoader{
 
 	public void setUrl(String url) {
 		this.url = url;
-		getImage();
+		//getImage();
 	}
 
 	public void getImage() {
 		if (!imgFile.exists()) {
-			ASyncImageLoader a = new ASyncImageLoader(this, width);
-			a.execute(new String[]{url});
+			//ASyncImageLoader a = new ASyncImageLoader(this, width);
+			//a.execute(new String[]{url});
+		} else {
 		}
 	}
 
@@ -139,12 +149,12 @@ public class GbsFbPost implements ImageLoader{
 	}
 
 	public void finishedLoadImage(Bitmap img) {
-		SaveImage(img);
+		saveImage(img);
 		//setImage(img);
-		parent.notifyDataSetChanged();
+		//parent.notifyDataSetChanged();
 	}
 
-	private void SaveImage(Bitmap finalBitmap) {
+	public void saveImage(Bitmap finalBitmap) {
 		if (imgFile.exists()) imgFile.delete (); 
 		try {
 			FileOutputStream out = new FileOutputStream(imgFile);
@@ -164,4 +174,21 @@ public class GbsFbPost implements ImageLoader{
 		return isNotEmpty;
 	}
 
+	private void setImagesUrls(String string) {
+		// TODO Auto-generated method stub
+		url = string;
+	}
+
+	private void getImagesUrls(String string) {
+		// TODO Auto-generated method stub
+		if (string != null) {
+			ASyncImageUrlLoader a = new ASyncImageUrlLoader(this, width);
+			a.execute(new String[]{string});
+		}
+	}
+
+	public void imageUrlLoaded(String result) {
+		// TODO Auto-generated method stub
+		setUrl(result);
+	}
 }

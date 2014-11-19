@@ -1,43 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/row_linearlayout"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:clickable="false"
-    android:orientation="vertical"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp"
-    android:paddingTop="5dp"
-    android:paddingBottom="5dp" >
-
-    <TextView
-        android:id="@+id/row_title"
-        style="@style/PaddingSmall"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/photo"
-        android:textSize="20sp" />
-
-    <com.ilves.gbsgarn.ResizableImageView
-        android:id="@+id/row_image"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:background="#44444488"
-        android:contentDescription="@string/app_name"
-        android:padding="5dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher" />
-
-    <TextView
-        android:id="@+id/row_date"
-        style="@style/PaddingSmall"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:paddingBottom="5dp"
-        android:text="@string/testTime"
-        android:textColor="#888888" />
-
-</LinearLayout>
+    android:elevation="100dp"
+    card_view:cardBackgroundColor="@android:color/white"
+    card_view:cardCornerRadius="2dp">
+        
+	<LinearLayout 
+	    android:id="@+id/row_linearlayout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:clickable="false"
+	    android:orientation="vertical"
+	    android:paddingLeft="15dp"
+	    android:paddingRight="15dp"
+	    android:paddingTop="5dp"
+	    android:paddingBottom="5dp" >
+	
+	    <TextView
+	        android:id="@+id/row_title"
+	        style="@style/PaddingSmall"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/photo"
+	        android:textSize="18sp" />
+	
+	    <com.ilves.gbsgarn.views.ResizableImageView
+	        android:id="@+id/row_image"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="25dp"
+	        android:layout_marginRight="25dp"
+	        android:background="#44444488"
+	        android:contentDescription="@string/app_name"
+	        android:padding="5dp"
+	        android:scaleType="centerCrop"
+	        android:src="@drawable/ic_launcher" />
+	
+	    <TextView
+	        android:id="@+id/row_date"
+	        style="@style/PaddingSmall"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="right"
+	        android:paddingBottom="5dp"
+	        android:text="@string/testTime"
+	        android:textColor="#888888" />
+	
+	</LinearLayout>
+</android.support.v7.widget.CardView>

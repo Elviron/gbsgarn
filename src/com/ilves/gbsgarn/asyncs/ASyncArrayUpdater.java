@@ -1,18 +1,21 @@
-package com.ilves.gbsgarn;
+package com.ilves.gbsgarn.asyncs;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ilves.gbsgarn.adapters.GbsAdapter;
+import com.ilves.gbsgarn.types.GbsFbPost;
+
 import android.os.AsyncTask;
 import android.util.Pair;
 
-public class ASyndArrayUpdater extends AsyncTask<Pair<List<GbsFbPost>,List<GbsFbPost>>, Void, List<GbsFbPost>> {
+public class ASyncArrayUpdater extends AsyncTask<Pair<List<GbsFbPost>,List<GbsFbPost>>, Void, List<GbsFbPost>> {
 
-	private GbsArrayAdapter parent;
+	private GbsAdapter parent;
 	private List<GbsFbPost> mList;
 
-	public ASyndArrayUpdater(GbsArrayAdapter context) {
-		parent = context;
+	public ASyncArrayUpdater(GbsAdapter gbsAdapter) {
+		parent = gbsAdapter;
 	}
 	@Override
 	protected List<GbsFbPost> doInBackground(Pair<List<GbsFbPost>,List<GbsFbPost>>... arg0) {

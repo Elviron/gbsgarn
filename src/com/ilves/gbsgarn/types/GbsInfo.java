@@ -1,4 +1,4 @@
-package com.ilves.gbsgarn;
+package com.ilves.gbsgarn.types;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -7,6 +7,11 @@ import java.util.TimeZone;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.ilves.gbsgarn.GbsGarnActivity;
+import com.ilves.gbsgarn.GlobalValues;
+import com.ilves.gbsgarn.R;
+import com.ilves.gbsgarn.R.string;
 
 import android.util.Log;
 import android.view.View;
@@ -21,11 +26,13 @@ public class GbsInfo {
 	public int today_open, today_close;
 	public int tomorrow_open, tomorrow_close;
 
-	public String today = "today", tomorrow = "tomorrow";
+	private String today = "", tomorrow = "";
+
 	public int closedView = View.VISIBLE;
 	public int openView = View.GONE;
 	
 	private GbsGarnActivity context;
+	private boolean	mDebugLog = true;
 
 	public GbsInfo() {
 		// TODO Auto-generated constructor stub
@@ -36,14 +43,19 @@ public class GbsInfo {
 		try {
 			// fetch open hours and convert to int
 			JSONObject hours = obj.getJSONObject("hours");
+			Log.i(GlobalValues.logTag, hours.toString());
 			String msg = hours.getString("mon_1_open");
 			weekday_open = convertToInt(msg);
+			debugLog(""+weekday_open);
 			msg = hours.getString("mon_1_close");
 			weekday_close = convertToInt(msg);
+			debugLog(""+weekday_close);
 			msg = hours.getString("sat_1_open");
 			sat_open = convertToInt(msg);
+			debugLog(""+sat_open);
 			msg = hours.getString("sat_1_close");
 			sat_close = convertToInt(msg);
+			debugLog(""+sat_close);
 
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -80,6 +92,8 @@ public class GbsInfo {
 		} else { // sunday, today closed, tomorrow open
 			closedView = View.VISIBLE;
 			openView = View.GONE;
+			today = context.getString(R.string.closed);
+			tomorrow = weekday_open+".00-"+weekday_close+".00";
 		}
 	}
 
@@ -162,4 +176,29 @@ public class GbsInfo {
 	2018	söndag den 25 mars, 02:00	söndag den 28 oktober, 03:00
 	2019	söndag den 31 mars, 02:00	söndag den 27 oktober, 03:00
 	*/
+	
+	/*
+	 * GETTER AND SETTERS
+	 */
+	public String getToday() {
+		return today;
+	}
+
+	public void setToday(String today) {
+		this.today = today;
+	}
+
+	public String getTomorrow() {
+		return tomorrow;
+	}
+
+	public void setTomorrow(String tomorrow) {
+		this.tomorrow = tomorrow;
+	}
+
+	public void debugLog(String message) {
+		if (mDebugLog ) {
+			Log.i(GlobalValues.logTag, message);
+		}
+	}
 }

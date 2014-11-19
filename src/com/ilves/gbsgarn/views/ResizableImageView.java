@@ -1,4 +1,4 @@
-package com.ilves.gbsgarn;
+package com.ilves.gbsgarn.views;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

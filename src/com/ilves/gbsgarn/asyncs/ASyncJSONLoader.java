@@ -1,4 +1,4 @@
-package com.ilves.gbsgarn;
+package com.ilves.gbsgarn.asyncs;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,6 +13,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.ilves.gbsgarn.GbsGarnActivity;
+import com.ilves.gbsgarn.GlobalValues;
+import com.ilves.gbsgarn.adapters.GbsAdapter;
+import com.ilves.gbsgarn.types.GbsFbPost;
+import com.ilves.gbsgarn.types.GbsInfo;
+
 import android.os.AsyncTask;
 import android.util.Log;
 import android.util.Pair;
@@ -20,13 +26,13 @@ import android.util.Pair;
 public class ASyncJSONLoader extends AsyncTask<String, Void, Object> {
 
 	private GbsGarnActivity activity;
-	private GbsArrayAdapter adapter;
+	private GbsAdapter adapter;
 	private boolean type;
 	private String pagingNext;
 	private int width;
 
-	public ASyncJSONLoader(GbsArrayAdapter context, boolean t, int w) {
-		adapter = context;
+	public ASyncJSONLoader(GbsAdapter gbsAdapter, boolean t, int w) {
+		adapter = gbsAdapter;
 		type = t;
 		width = w;
 	}

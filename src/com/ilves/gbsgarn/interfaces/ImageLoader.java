@@ -1,4 +1,4 @@
-package com.ilves.gbsgarn;
+package com.ilves.gbsgarn.interfaces;
 
 import android.graphics.Bitmap;
 

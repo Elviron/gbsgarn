@@ -1,8 +1,16 @@
-package com.ilves.gbsgarn;
+package com.ilves.gbsgarn.adapters;
 
 import java.util.List;
 
+import com.ilves.gbsgarn.GlobalValues;
+import com.ilves.gbsgarn.R;
+import com.ilves.gbsgarn.R.id;
+import com.ilves.gbsgarn.R.layout;
+import com.ilves.gbsgarn.types.GbsFbPost;
+import com.ilves.gbsgarn.views.ResizableImageView;
+
 import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -49,8 +57,8 @@ public class GbsArrayAdapter extends ArrayAdapter<GbsFbPost> {
 		//width = imgv.getWidth();
 		Log.d(GlobalValues.logTag, "width: "+width);
 		// start new async to fetch the first posts
-		ASyncJSONLoader jsonLoaderFeed = new ASyncJSONLoader(this, GlobalValues.json_loader_feed, width);
-		jsonLoaderFeed.execute(new String[]{GlobalValues.url_gbs_feed});
+		//ASyncJSONLoader jsonLoaderFeed = new ASyncJSONLoader(this, GlobalValues.json_loader_feed, width);
+		//jsonLoaderFeed.execute(new String[]{GlobalValues.url_gbs_feed});
 		Log.d(GlobalValues.logTag, "Started jsonloader feed");
 	}
 
@@ -72,28 +80,28 @@ public class GbsArrayAdapter extends ArrayAdapter<GbsFbPost> {
 		ViewHolder holder = (ViewHolder) rowView.getTag();
 		// get item to show
 		// change to db
-		GbsFbPost s = mList.get(position);
+		GbsFbPost post = mList.get(position);
 
-		if (s.hasTitle()) {
+		if (post.hasTitle()) {
 			holder.title.setVisibility(View.VISIBLE);
-			holder.title.setText((s.getTitle()));
+			holder.title.setText((post.getTitle()));
 		} else {
 			holder.title.setVisibility(View.GONE);
 		}
-		holder.date.setText(s.getDate());
-		if (s.hasBitmap()) {
-			//holder.image.setImageURI(Uri.fromFile(s.getFile()));
+		holder.date.setText(post.getDate());
+		if (post.hasBitmap()) {
+			holder.image.setImageURI(Uri.fromFile(post.getFile()));
 			//ASyncImageViewLoader imageLoader = new ASyncImageViewLoader(holder.image);
 			//imageLoader.execute(new File[]{s.getFile()});
-			holder.image.setImageBitmap(s.loadBitmap());
+			holder.image.setImageBitmap(post.loadBitmap());
 		}
 		
 		
 		// if next last element, start new async to load more posts
 		if (position >= getCount()-2 && notLoading) {
 			// New async
-			ASyncJSONLoader jsonLoaderFeed = new ASyncJSONLoader(this, GlobalValues.json_loader_feed, width);
-			jsonLoaderFeed.execute(new String[]{url});
+			//ASyncJSONLoader jsonLoaderFeed = new ASyncJSONLoader(this, GlobalValues.json_loader_feed, width);
+			//jsonLoaderFeed.execute(new String[]{url});
 			Log.d(GlobalValues.logTag, "Started jsonloader feed update");
 			notLoading = false;
 		}
@@ -118,7 +126,11 @@ public class GbsArrayAdapter extends ArrayAdapter<GbsFbPost> {
 	@SuppressWarnings("unchecked")
 	public void loadedJSON(Pair<List<GbsFbPost>, String> pair) {
 		url = pair.second;
-		ASyndArrayUpdater updater = new ASyndArrayUpdater(this);
-		updater.execute(new Pair<List<GbsFbPost>,List<GbsFbPost>>(mList, pair.first));
+		//ASyncArrayUpdater updater = new ASyncArrayUpdater(this);
+		//updater.execute(new Pair<List<GbsFbPost>,List<GbsFbPost>>(mList, pair.first));
+	}
+	
+	public String getActivityString(int id) {
+		return mContext.getString(id);
 	}
 }
