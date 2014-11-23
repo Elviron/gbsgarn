@@ -14,6 +14,10 @@
     <string name="tomorrow">Tomorrow:</string>
     <string name="photo">Photo</string>
     <string name="hours">10.00&#8211;18.00</string>
-    <string name="testTime">2013&#8211;06&#8211;10T14:32:41+01:00</string>    
+    <string name="testTime">2013&#8211;06&#8211;10T14:32:41+01:00</string>
+    <string name="title_activity_test_tab">TestTabActivity</string>
+    <string name="title_notes">Notes</string>
+    <string name="title_feed">Feed</string>
+    <string name="title_activity_notes">Notes</string>
 
 </resources>

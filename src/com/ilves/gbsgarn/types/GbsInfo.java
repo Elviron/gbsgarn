@@ -9,9 +9,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.ilves.gbsgarn.GbsGarnActivity;
-import com.ilves.gbsgarn.GlobalValues;
 import com.ilves.gbsgarn.R;
 import com.ilves.gbsgarn.R.string;
+import com.ilves.gbsgarn.utils.GlobalValues;
 
 import android.util.Log;
 import android.view.View;

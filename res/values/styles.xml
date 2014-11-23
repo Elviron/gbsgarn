@@ -1,27 +1,13 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- general styles for the action bar -->
-    <style name="MyActionBar"
-           parent="@style/Widget.AppCompat.ActionBar">
-        <item name="android:titleTextStyle" tools:ignore="NewApi">@style/TitleTextStyle</item>
-        <item name="android:background" tools:ignore="NewApi">@color/main_color</item>
-
-        <!-- Support library compatibility -->
-        <item name="titleTextStyle">@style/TitleTextStyle</item>
-        <item name="background">@color/main_color</item>
-    </style>
 
     <!-- action bar title text -->
-    <style name="TitleTextStyle"
-           parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">@color/main_title</item>
+    <style name="TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textSize">24sp</item>
     </style>
 
     <!-- action bar tab text -->
-    <style name="TabTextStyle"
-           parent="@style/Widget.AppCompat.ActionBar.TabText">
+    <style name="TabTextStyle" parent="@style/Widget.AppCompat.ActionBar.TabText">
         <item name="android:textColor">@color/main_title</item>
     </style>
 

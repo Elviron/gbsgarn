@@ -3,7 +3,6 @@ package com.ilves.gbsgarn.adapters;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ilves.gbsgarn.GlobalValues;
 import com.ilves.gbsgarn.R;
 import com.ilves.gbsgarn.R.id;
 import com.ilves.gbsgarn.R.layout;
@@ -13,6 +12,7 @@ import com.ilves.gbsgarn.asyncs.ASyncImageLoader;
 import com.ilves.gbsgarn.asyncs.ASyncJSONLoader;
 import com.ilves.gbsgarn.types.GbsFbPost;
 import com.ilves.gbsgarn.types.GbsInfo;
+import com.ilves.gbsgarn.utils.GlobalValues;
 import com.ilves.gbsgarn.views.ResizableImageView;
 
 import android.content.Context;

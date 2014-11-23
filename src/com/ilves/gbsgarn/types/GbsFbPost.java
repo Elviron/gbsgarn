@@ -5,12 +5,12 @@ import java.io.FileOutputStream;
 
 import org.json.JSONObject;
 
-import com.ilves.gbsgarn.GlobalValues;
 import com.ilves.gbsgarn.R;
 import com.ilves.gbsgarn.R.string;
 import com.ilves.gbsgarn.adapters.GbsAdapter;
 import com.ilves.gbsgarn.asyncs.ASyncImageUrlLoader;
 import com.ilves.gbsgarn.interfaces.ImageLoader;
+import com.ilves.gbsgarn.utils.GlobalValues;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

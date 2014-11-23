@@ -15,9 +15,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.ilves.gbsgarn.GlobalValues;
 import com.ilves.gbsgarn.adapters.GbsAdapter;
 import com.ilves.gbsgarn.types.GbsFbPost;
+import com.ilves.gbsgarn.utils.GlobalValues;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

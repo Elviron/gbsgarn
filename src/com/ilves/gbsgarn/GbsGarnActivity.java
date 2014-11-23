@@ -2,26 +2,24 @@ package com.ilves.gbsgarn;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ListView;
+
 import com.ilves.gbsgarn.adapters.GbsAdapter;
 import com.ilves.gbsgarn.adapters.GbsArrayAdapter;
 import com.ilves.gbsgarn.asyncs.ASyncJSONLoader;
 import com.ilves.gbsgarn.types.GbsFbPost;
 import com.ilves.gbsgarn.types.GbsInfo;
+import com.ilves.gbsgarn.utils.GlobalValues;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBar.Tab;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.graphics.PorterDuff;
 
 public class GbsGarnActivity extends ActionBarActivity {
 
@@ -48,9 +46,10 @@ public class GbsGarnActivity extends ActionBarActivity {
 		//Session.openActiveSession(this, true, new MyStatusCallback());
 		getSupportActionBar().setTitle(getString(R.string.name));
 		//getSupportActionBar().setSubtitle(getString(R.string.name));
-		getSupportActionBar().setHomeButtonEnabled(true);
+		//getSupportActionBar().setHomeButtonEnabled(true);
 		//Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		//toolbar.setTitle("Öppet");
+		//getSupportActionBar().setDisplayUseLogoEnabled(true);
 		
 		mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 		// use this setting to improve performance if you know that changes
@@ -69,9 +68,20 @@ public class GbsGarnActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        //menu.findItem(R.id.action_search).getIcon().setColorFilter(getResources().getColor(R.color.color_primary_text), PorterDuff.Mode.MULTIPLY);
         return true;
     }
 	
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		Intent intent = new Intent(this, NotesActivity.class);
+		startActivity(intent);
+		overridePendingTransition(R.anim.abc_fade_in,R.anim.abc_fade_out);
+		return super.onOptionsItemSelected(item);
+	}
+
 
 	public GbsGarnActivity() {
 		ASyncJSONLoader jsonLoaderInfo = new ASyncJSONLoader(this, GlobalValues.json_loader_info);

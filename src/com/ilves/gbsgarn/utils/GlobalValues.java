@@ -1,4 +1,4 @@
-package com.ilves.gbsgarn;
+package com.ilves.gbsgarn.utils;
 
 public interface GlobalValues {
 

@@ -14,5 +14,9 @@
     <string name="photo">Foto</string>
     <string name="hours">10.00&#8211;18.00</string>
     <string name="testTime">2013&#8211;06&#8211;10T14:32:41+01:00</string> 
+    
+    
+    <string name="title_notes">Anteckningar</string>
+    <string name="title_feed">Feed</string>
 
 </resources>
